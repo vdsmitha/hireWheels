@@ -23,19 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a24154a-b33d-4206-8fe9-d62831ede6e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/Booking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/FuelType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/VehicleCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities/VehicleSubcategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/BookingDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/CityDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/FuelTypeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/LocationDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/RoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/UsersDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/VehicleCategoryDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/VehicleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao/VehicleSubcategoryDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hirewheels/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hirewheels/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hirewheels/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hirewheels/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/HireWheelsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/HireWheelsApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,14 +57,28 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/entities" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hirewheels/src/main/java/com/upgrad/hirewheels/dao" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\IdeaProjects\hirewheels\hirewheels\src\main\java\com\upgrad\hirewheels\dao" />
       <recent name="C:\Users\LENOVO\IdeaProjects\hirewheels\hirewheels\src\main\java\com\upgrad\hirewheels\entities" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in hirewheels (2)">
+  <component name="RunManager" selected="Application.HireWheelsApplication">
+    <configuration name="HireWheelsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.upgrad.hirewheels.HireWheelsApplication" />
+      <module name="hirewheels" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.hirewheels.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in hirewheels (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hirewheels" />
       <option name="PACKAGE_NAME" value="" />
@@ -93,6 +105,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HireWheelsApplication" />
         <item itemvalue="JUnit.All in hirewheels (2)" />
         <item itemvalue="JUnit.All in hirewheels (1)" />
         <item itemvalue="JUnit.All in hirewheels" />
@@ -120,23 +133,24 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="514" key="GridCell.Tab.0.bottom" timestamp="1605083353958">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1605088417789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="514" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605083353958" />
-    <state width="1323" height="514" key="GridCell.Tab.0.center" timestamp="1605083353958">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605088417789" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1605088417789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="514" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605083353958" />
-    <state width="1323" height="514" key="GridCell.Tab.0.left" timestamp="1605083353958">
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605088417789" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1605088417789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="514" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605083353958" />
-    <state width="1323" height="514" key="GridCell.Tab.0.right" timestamp="1605083353958">
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605088417789" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1605088417789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="514" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605083353958" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605088417789" />
   </component>
 </project>
