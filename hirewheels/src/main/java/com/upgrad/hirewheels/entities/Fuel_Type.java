@@ -1,9 +1,11 @@
 package com.upgrad.hirewheels.entities;
 
-
 import javax.persistence.*;
+import java.util.List;
 
-public class FuelType {
+@Entity
+@Table(name = "Fuel_Type")
+public class Fuel_Type {
     @Id
     @GeneratedValue
     @Column(name = "fuel_type_id")
@@ -11,6 +13,21 @@ public class FuelType {
 
     @Column(name = "fuel_type", length = 50, nullable = false,unique = true)
     private String fuel_type;
+
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "fuel_type")
+    List<Vehicle> vehicles;
+
+    public Fuel_Type(int i, String petrol) {
+    }
+
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
 
     public int getFuel_type_id() {
         return fuel_type_id;
@@ -30,7 +47,7 @@ public class FuelType {
 
     @Override
     public String toString() {
-        return "FuelType{" +
+        return "Fuel_Type{" +
                 "fuel_type_id=" + fuel_type_id +
                 ", fuel_type='" + fuel_type + '\'' +
                 '}';

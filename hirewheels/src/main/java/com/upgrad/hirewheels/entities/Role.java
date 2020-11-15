@@ -1,8 +1,12 @@
 package com.upgrad.hirewheels.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table(name = "Role")
 public class Role {
     @Id
     @GeneratedValue
@@ -11,6 +15,25 @@ public class Role {
 
     @Column(name = "role_name", length = 50, nullable = false,unique = true)
     private String role_name;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JsonBackReference
+    List<Users> usersList;
+
+    public Role(int i, String admin) {
+    }
+
+    public Role() {
+
+    }
+
+    public List<Users> getUsersList() {
+        return usersList;
+    }
+
+    public void setUsersList(List<Users> usersList) {
+        this.usersList = usersList;
+    }
 
     public int getRole_id() {
         return role_id;

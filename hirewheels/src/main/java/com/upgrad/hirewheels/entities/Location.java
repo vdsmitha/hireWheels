@@ -1,7 +1,12 @@
 package com.upgrad.hirewheels.entities;
 
-import javax.persistence.*;
+import org.hibernate.loader.custom.FetchReturn;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "Location")
 public class Location {
     @Id
     @GeneratedValue
@@ -14,11 +19,43 @@ public class Location {
     @Column(name = "address", length = 100, nullable = false)
     private String address;
 
-    @Column(name = "city_id")
-    private int city_id;
+    @OneToMany(fetch= FetchType.LAZY,mappedBy = "location",cascade = CascadeType.ALL)
+    List<Vehicle>  vehicles;
+    @ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.MERGE)
+    City city;
+
+    @OneToMany(fetch= FetchType.LAZY,mappedBy = "location",cascade = CascadeType.ALL)
+    List<Booking>  bookings;
+
+    public Location(int i, String worli, String s, int i1, City city) {
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 
     @Column(name = "pincode",length=6)
     private String pincode;
+
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     public int getLocation_id() {
         return location_id;
@@ -44,13 +81,7 @@ public class Location {
         this.address = address;
     }
 
-    public int getCity_id() {
-        return city_id;
-    }
 
-    public void setCity_id(int city_id) {
-        this.city_id = city_id;
-    }
 
     public String getPincode() {
         return pincode;
@@ -66,8 +97,8 @@ public class Location {
                 "location_id=" + location_id +
                 ", location_name='" + location_name + '\'' +
                 "address=" + address +
-                ", city_id='" + city_id + '\'' +
                 ", pincode='" + pincode + '\'' +
+                ", city='" + city + '\'' +
                 '}';
     }
 }

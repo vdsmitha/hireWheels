@@ -1,8 +1,13 @@
 package com.upgrad.hirewheels.entities;
 
+
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
+@Entity
+@Table(name = "Booking")
 public class Booking {
     @Id
     @GeneratedValue
@@ -12,14 +17,6 @@ public class Booking {
     @Column(name="amount",nullable = false)
     private double amount;
 
-    @Column(name="location_id",nullable = false)
-    private int location_id;
-
-    @Column(name="vehicle_id",nullable = false)
-    private int vehicle_id;
-
-    @Column(name="user_id",nullable = false)
-    private int user_id;
 
     @Column(name="pickup_date",nullable = false)
     private LocalDateTime pickup_date;
@@ -31,6 +28,39 @@ public class Booking {
 
     @Column(name="booking_date",nullable = false)
     private LocalDateTime booking_date;
+
+    @ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.MERGE)
+    Location location;
+
+    @ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.MERGE)
+    Vehicle vehicles;
+
+    @ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.MERGE)
+    Users users;
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Vehicle getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(Vehicle vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
 
     public int getBooking_id() {
         return booking_id;
@@ -46,30 +76,6 @@ public class Booking {
 
     public void setAmount(double amount) {
         this.amount = amount;
-    }
-
-    public int getLocation_id() {
-        return location_id;
-    }
-
-    public void setLocation_id(int location_id) {
-        this.location_id = location_id;
-    }
-
-    public int getVehicle_id() {
-        return vehicle_id;
-    }
-
-    public void setVehicle_id(int vehicle_id) {
-        this.vehicle_id = vehicle_id;
-    }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
     }
 
     public LocalDateTime getPickup_date() {
@@ -104,10 +110,6 @@ public class Booking {
                 ", dropoff_date='" + dropoff_date + '\'' +
                 ", booking_date='" + booking_date+'\'' +
                 ", amount='" + amount + '\'' +
-                ", location_id=" + location_id +'\''+
-                ",vehicle_id="+vehicle_id+'\''+
-                ",user_id"+user_id+'\''+
                 '}';
     }
 }
-

@@ -1,29 +1,82 @@
 package com.upgrad.hirewheels.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.List;
 
-
+@Entity
+@Table(name = "Users")
 public class Users {
     @Id
     @GeneratedValue
-    @Column(name="user_id")
-    private int user_id;
+        @Column(name="user_id")
+        private int user_id;
 
     @Column(name="firstName",length = 50, nullable = false)
-    private String firstName;
+        private String firstName;
 
     @Column(name="lastName",length=50)
-    private String lastName;
+        private String lastName;
+
     @Column(name="password",length=50,nullable = false)
-    private String password;
+        private String password;
+
     @Column(name="email",length=50,nullable = false,unique = true)
-    private String email;
+        private String email;
+
     @Column(name="mobileNo",length=10,nullable = false,unique = true)
-    private String mobileNo;
-    @Column(name="role_id",nullable = false)
-    private int role_id;
-    @Column(name="wallet_money",nullable = false)
-    private int wallet_money;
+        private String mobileNo;
+
+
+    @Column(name="wallet_money",nullable = false,precision = 2)
+        private float wallet_money=10000.00f;
+
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JsonBackReference
+    Role role;
+    @OneToMany(fetch=FetchType.LAZY,mappedBy ="user",cascade=CascadeType.ALL)
+    @JsonBackReference
+    List<Vehicle> vehicleList;
+
+    @OneToMany(fetch=FetchType.LAZY,mappedBy = "users")
+    @JsonBackReference
+    List<Booking> bookings;
+
+    public Users(String upgrad, String admin, String s, String s1, String s2, int i, Object byRoleId) {
+    }
+
+    public Users() {
+
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Vehicle> getVehicleList() {
+        return vehicleList;
+    }
+
+    public void setVehicleList(List<Vehicle> vehicleList) {
+        this.vehicleList = vehicleList;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+//    @OneToMany(fetch=FetchType.LAZY,mappedBy = "user")
+//    @JsonBackReference
+
 
     public int getUser_id() {
         return user_id;
@@ -73,19 +126,11 @@ public class Users {
         this.mobileNo = mobileNo;
     }
 
-    public int getRole_id() {
-        return role_id;
-    }
-
-    public void setRole_id(int role_id) {
-        this.role_id = role_id;
-    }
-
-    public int getWallet_money() {
+    public float getWallet_money() {
         return wallet_money;
     }
 
-    public void setWallet_money(int wallet_money) {
+    public void setWallet_money(float wallet_money) {
         this.wallet_money = wallet_money;
     }
 
@@ -98,8 +143,8 @@ public class Users {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", mobileNo=" + mobileNo +'\''+
-                ",role_id="+role_id+'\''+
-                ",wallet_money"+wallet_money+'\''+
+                ",wallet_money="+wallet_money+'\''+
+                ",role="+role+'\''+
                 '}';
     }
 }
